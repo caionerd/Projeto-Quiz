@@ -1,0 +1,253 @@
+:root {
+  --bg-color: linear-gradient(135deg, #f7f8fc, #e2e8f0);
+  --text-color: #222;
+  --card-bg: #fff;
+  --accent: #2196F3;
+  --btn-bg: #2196F3;
+  --btn-hover: #1976D2;
+  --progress-bg: rgba(0,0,0,0.1);
+}
+
+/* Dark Mode */
+body.dark {
+  --bg-color: linear-gradient(135deg, #2a1c3d, #3c1f5c);
+  --text-color: #fff;
+  --card-bg: #3c1f5c;
+  --accent: #bb86fc;
+  --btn-bg: #bb86fc;
+  --btn-hover: #9a6efc;
+  --progress-bg: rgba(255,255,255,0.2);
+}
+
+/* High Contrast */
+body.high-contrast {
+  --bg-color: #000;
+  --text-color: #fff;
+  --card-bg: #111;
+  --accent: #ff0;
+  --btn-bg: #ff0;
+  --btn-hover: #ffc600;
+  --progress-bg: rgba(255,255,0,0.2);
+}
+
+/* Bizarre Mode */
+body.bizarre {
+  --bg-color: #000;
+  --text-color: #ff0000;
+  --card-bg: #000;
+  --accent: #ff0000;
+  --btn-bg: #ff0000;
+  --btn-hover: #cc0000;
+}
+
+/* Geral */
+body {
+  font-family: 'Arial', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.quiz-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.progress {
+  height: 12px;
+  background: var(--progress-bg);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  transition: opacity 0.3s ease;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+body.bizarre .progress {
+  display: none;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+body.bizarre .card {
+  border-radius: 0;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.answers label {
+  display: block;
+  margin-bottom: 15px;
+  cursor: pointer;
+  padding: 14px 20px;
+  border-radius: 15px;
+  background: rgba(0,0,0,0.05);
+  transition: all 0.3s;
+  font-size: 16px;
+}
+
+body.bizarre .answers label {
+  border-radius: 0;
+  background: #000;
+  color: #ff0000;
+}
+
+.answers label:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+body.bizarre .answers label:hover {
+  background: #ff0000;
+  color: #fff;
+  transform: none;
+}
+
+button {
+  margin-top: 20px;
+  padding: 16px 32px;
+  border: none;
+  background-color: var(--btn-bg);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: var(--btn-hover);
+  transform: scale(1.05);
+}
+
+body.bizarre button {
+  background-color: var(--btn-bg);
+}
+
+body.bizarre button:hover {
+  background-color: var(--btn-hover);
+}
+
+.config-panel {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.bizarre .config-panel {
+  display: none;
+}
+
+/* Config Toggle */
+.config-toggle {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.config-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Config Options */
+.config-options {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 10px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+}
+
+.config-options.show {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 25px;
+  position: relative;
+  transition: 0.4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+/* White Noise Bizarre */
+body.bizarre::before {
+  content: "";
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0.15;
+  pointer-events:none;
+  z-index:0;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Configurações -->
+  <div class="config-panel">
+    <button class="config-toggle">⚙️</button>
+    <div class="config-options">
+      <label class="switch">
+        Dark Mode
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider"></span>
+      </label>
+      <label class="switch">
+        Alto Contraste
+        <input type="checkbox" id="highContrastToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="quiz-container" id="quizContainer">
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="card" id="card">
+      <h2 id="question">Pergunta de exemplo</h2>
+      <div class="answers" id="answers"></div>
+      <button id="submit">Próxima</button>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
